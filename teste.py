@@ -1,7 +1,9 @@
 import psycopg2
 import pandas as pd
 import os
-query = os.environ.get('a')
+query = os.environ.get('a').lower()
+# query = 'CREATE TABLE testes_v3 as (select 1+1 as var)'
+
 def execute_sql():
     conn = psycopg2.connect(host='localhost', port='5432',database='postgres',user='postgres', password='changeme')
     cursor = conn.cursor()
@@ -10,13 +12,18 @@ def execute_sql():
                 {query}
                     ''')
         
-        data = 'SUCESS\n ' + str(cursor.fetchall())
+        for row in cursor.fetchall():
+            print(row)
+            data = row
+       
     except Exception as e:
-        if query.__contains__('CREATE') and query.__contains__('INSERT') and query.__contains__('DROP') == False:
-                data = 'Bad ERROR ' + str(e) 
-    
+        if str(e).__contains__('no results'):
+                data = f'{query} concluida' 
+        else : 
+            data = str(e)
+    print(data)
     with open('data.txt','w') as f:
-        f.write(data)
+        f.write(str(data))
         f.close()
 
     conn.commit()
