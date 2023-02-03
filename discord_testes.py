@@ -5,7 +5,7 @@ import youtube_dl
 import socket
 # hostname = socket.gethostname()
 # ip = socket.gethostbyname(hostname)
-DISCORD_TOKEN = "MTA3MTEwMTg0NDczMTk5ODMyOQ.G-YcSa.gn3C6dY1MjfoLA4vzLvl80df20RuwBbEpAyekk"
+DISCORD_TOKEN = "MTA3MTEwMTg0NDczMTk5ODMyOQ.Gltrvn.KDmeiQn9QYFcVv_UrIGeA52IGohHK_fd-SB94M"
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
@@ -19,7 +19,7 @@ async def on_message(message):
     if message.content.startswith('$run'):
         a = str(message.content).strip('$run')
         os.environ["a"] = a
-        await message.channel.send(f'Rodando a query {a}!\n\n\n')
+        await message.channel.send(f'Olá,{message.author}!Rodando a query {a}!\n\n\n')
         os.system("python teste.py")
         with open('data.txt') as f:
             query = f.read()
