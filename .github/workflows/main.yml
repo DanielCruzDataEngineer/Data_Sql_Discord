@@ -1,17 +1,25 @@
-steps:
-- name: Checkout code
-  uses: actions/checkout@v2
+name: Update S&P500 Symbol List
 
-- name: Set up Python
-  uses: actions/setup-python@v2
-  with:
-    python-version: 3.x
+on:
+  workflow_dispatch:
 
-- name: Install dependencies
-  run: |
-    python -m venv env
-    env/bin/pip install -r requirements.txt
+jobs:
+  update_symbol_list:
+    name: Update S&P500 symbol list periodically
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-- name: Run script
-  run: |
-    env/bin/python discord_testes.py
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Script
+        run: |
+          python discord_testes.py
