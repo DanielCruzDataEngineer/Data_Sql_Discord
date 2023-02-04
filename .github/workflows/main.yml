@@ -1,0 +1,17 @@
+steps:
+- name: Checkout code
+  uses: actions/checkout@v2
+
+- name: Set up Python
+  uses: actions/setup-python@v2
+  with:
+    python-version: 3.x
+
+- name: Install dependencies
+  run: |
+    python -m venv env
+    env/bin/pip install -r requirements.txt
+
+- name: Run script
+  run: |
+    env/bin/python discord_testes.py

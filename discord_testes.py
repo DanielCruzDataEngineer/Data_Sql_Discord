@@ -2,8 +2,6 @@ import discord
 from discord.ext import commands,tasks
 from discord.ext.commands import Bot
 import os
-import youtube_dl
-import socket
 import pandas as pd
 import time
 # hostname = socket.gethostname()
