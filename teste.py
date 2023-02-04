@@ -1,30 +1,32 @@
-import psycopg2
-import pandas as pd
+import mysql.connector
 import os
 query = os.environ.get('a').lower()
-# query = 'CREATE TABLE testes_v3 as (select 1+1 as var)'
+conn = mysql.connector.connect(
+        host = '192.168.18.8',
+        user = 'daniel',
+        password ='',
+        database = 'mysql'
 
-def execute_sql():
-    conn = psycopg2.connect(host='localhost', port='5432',database='postgres',user='postgres', password='changeme')
-    cursor = conn.cursor()
-    try:
-        cursor.execute(f'''
+)
+cursor = conn.cursor()
+try:
+    cursor.execute(f'''
                 {query}
                     ''')
-        
+    with open('data.txt','w') as f:    
         for row in cursor.fetchall():
-            print(row)
-            data = row
-       
-    except Exception as e:
-        if str(e).__contains__('no results'):
-                data = f'{query} concluida' 
-        else : 
-            data = str(e)
-    print(data)
-    with open('data.txt','w') as f:
-        f.write(str(data))
-        f.close()
+            
+            f.write(str(row))
 
-    conn.commit()
-execute_sql()		   
+       
+except Exception as e:
+    if str(e).__contains__('no results'):
+            data = f'{query} concluida' 
+    else : 
+        
+        data = str(e)
+        with open('data.txt','w') as f:
+            f.write("ERROR")
+            f.write(data)
+
+conn.commit()
