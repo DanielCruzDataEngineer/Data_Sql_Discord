@@ -1,4 +1,4 @@
-name: Update S&P500 Symbol List
+name: Data_Discord
 
 on:
   workflow_dispatch:
