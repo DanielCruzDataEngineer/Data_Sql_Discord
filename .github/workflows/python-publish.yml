@@ -23,6 +23,6 @@ jobs:
 
       - name: Run Script
         env:
-          MONGODB_CONNECTION_STRING: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         run: |
           python discord_testes.py
