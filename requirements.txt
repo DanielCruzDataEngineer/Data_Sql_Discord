@@ -1,0 +1,4 @@
+mysql-connector==2.2.9
+discord==2.0.0
+discord.py==2.0.1
+pandas==1.4.4
