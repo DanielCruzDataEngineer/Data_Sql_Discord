@@ -1,4 +1,4 @@
-name: Update S&P500 Symbol List
+name: Bot discord
 
 on:
   workflow_dispatch:

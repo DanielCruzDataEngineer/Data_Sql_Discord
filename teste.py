@@ -2,7 +2,7 @@ import mysql.connector
 import os
 query = os.environ.get('a').lower()
 conn = mysql.connector.connect(
-        host = '192.168.18.8',
+        host = 'localhost',
         user = 'daniel',
         password ='',
         database = 'mysql'
