@@ -24,9 +24,9 @@ jobs:
       - name: Run Script
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          MYSQL_HOST: 192.168.18.8
-          MYSQL_PORT: 3306
-          MYSQL_USER: daniel
+          MYSQL_HOST: mysql831.umbler.com
+          MYSQL_PORT: 41890
+          MYSQL_USER: root_daniel
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
         run: |
           python discord_testes.py
