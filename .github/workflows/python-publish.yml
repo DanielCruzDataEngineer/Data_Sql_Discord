@@ -19,7 +19,8 @@ jobs:
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
-        
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
 
 
 
