@@ -1,6 +1,8 @@
 import mysql.connector
 import os
-# query = os.environ.get('a').lower()
+query = os.environ.get('a').lower()
+from dotenv import load_dotenv,find_dotenv
+load_dotenv(find_dotenv())
 conn = mysql.connector.connect(
     host=os.environ['MYSQL_HOST'],
     port=os.environ['MYSQL_PORT'],
@@ -10,7 +12,7 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 try:
     cursor.execute(f'''
-               Select 1+1
+               {query}
                     ''')
     with open('data.txt','w') as f:    
         for row in cursor.fetchall():
