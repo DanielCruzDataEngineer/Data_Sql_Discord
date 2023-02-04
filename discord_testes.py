@@ -4,9 +4,14 @@ from discord.ext.commands import Bot
 import os
 import pandas as pd
 import time
+import os
+from dotenv import load_dotenv,find_dotenv
+load_dotenv(find_dotenv())
+
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+
 # hostname = socket.gethostname()
 # ip = socket.gethostbyname(hostname)
-DISCORD_TOKEN = "MTA3MTEwMTg0NDczMTk5ODMyOQ.GHfltt.2AS_xirRMUjuHr6dWjHOd0Z8uextnLDFyOIqGw"
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
