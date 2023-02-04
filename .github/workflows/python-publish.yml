@@ -19,11 +19,10 @@ jobs:
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
-        env:
-          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-
 
 
       - name: Run Script
+        env:
+          MONGODB_CONNECTION_STRING: ${{ secrets.DISCORD_TOKEN }}
         run: |
           python discord_testes.py
