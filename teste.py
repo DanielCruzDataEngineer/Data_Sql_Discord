@@ -1,6 +1,6 @@
 import mysql.connector
 import os
-# query = os.environ.get('a').lower()
+query = os.environ.get('a').lower()
 from dotenv import load_dotenv,find_dotenv
 load_dotenv(find_dotenv())
 conn = mysql.connector.connect(
