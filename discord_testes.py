@@ -35,7 +35,7 @@ async def on_message(message):
         print(f"Tempo de execução da query: {end - start:.2f} segundos")
         df = pd.read_csv('data.txt', sep=" ",encoding='utf-8',encoding_errors='ignore')
         df.to_csv("results.csv", index=False)
-        if str(df).__contains__('ERROR :') == True:
+        if str(df).__contains__('ERROR') == True:
             
             await message.channel.send(f'Results with Error: {str(df)}!')
         else:
